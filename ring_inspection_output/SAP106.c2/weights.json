@@ -1,0 +1,71 @@
+{
+    "_comment": "RingInspectionModel weight file \u2014 edit or auto-tune via .train()",
+    "model_version": "1.0",
+    "product_name": "default",
+    "trained": true,
+    "preprocessing": {
+        "clahe_clip": 1.5,
+        "clahe_tile": 8,
+        "bilateral_d": 5,
+        "bilateral_sigma_color": 75,
+        "bilateral_sigma_space": 75
+    },
+    "anchor_detection": {
+        "canny_lo": 20,
+        "canny_hi": 80,
+        "dilate_iters": 1,
+        "min_perimeter": 400,
+        "min_circularity": 0.25,
+        "radial_pad_inner": 60,
+        "radial_pad_outer": 20
+    },
+    "polar_analysis": {
+        "num_zones": 16,
+        "peak_height_global": 15,
+        "peak_height_zone": 10,
+        "peak_distance": 10,
+        "peak_prominence": 8,
+        "max_lines": 4,
+        "recover_missing_peaks": true,
+        "gap_scan_min_height": 8,
+        "gap_scan_min_zones": 8
+    },
+    "geometric_constraints": {
+        "_comment": "All fractions relative to ring_width = max_r - min_r",
+        "gap_12_frac_max": 0.1523661573854117,
+        "gap_23_frac_min": 0.06,
+        "gap_34_frac_min": 0.025,
+        "gap_24_frac_min": 0.1,
+        "nominal_gap_12_frac": 0.13249231076992324,
+        "nominal_gap_24_frac": 0.3751594108674452,
+        "nominal_ring_width_px": 200.0
+    },
+    "defect_thresholds": {
+        "max_variance_epsilon_frac": 0.04,
+        "discontinuity_frac": 0.12,
+        "band_gap_std_frac": 0.018,
+        "inner_band_gap_std_frac": 0.06,
+        "inner_disc_frac": 0.12,
+        "elongation_std_frac": 0.04,
+        "offcenter_dist_frac": 0.03
+    },
+    "circle_3_inspection_parameters": {
+        "allow_circle_3_fallback": false,
+        "max_consecutive_dropouts_allowed": 3,
+        "learned_ratio_3_to_24": 0.5,
+        "min_zone_coverage_frac": 0.5,
+        "_comment_12": "\u00a712 \u2014 C3 spatial proximity constraints",
+        "c3_c2_proximity_buffer_frac": 0.08,
+        "c3_c2_proximity_tolerance_pct": 0.6,
+        "c3_c4_clustering_threshold_frac": 0.05,
+        "_comment_13": "\u00a713 \u2014 Sinusoidal / ellipticity defect detection",
+        "sinusoidal_detection_enabled": true,
+        "sinusoidal_amplitude_threshold_frac": 0.04,
+        "sinusoidal_min_r_squared": 0.55
+    },
+    "_comment_11": "\u00a711 \u2014 Dominant peak anchor selection (C1 & C2)",
+    "coarse_segmentation": {
+        "use_dominant_peak_anchors": true,
+        "suppress_inter_anchor_peaks": true
+    }
+}

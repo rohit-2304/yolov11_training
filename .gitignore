@@ -1,0 +1,146 @@
+# ============================================================
+# Project Antigravity — .gitignore
+# Rule: Ignore all data/media files. Keep all model weights.
+# ============================================================
+
+
+# ── Python cache & build artifacts ──────────────────────────
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+dist/
+build/
+*.egg
+
+
+# ── Virtual environments ─────────────────────────────────────
+.venv/
+venv/
+env/
+.env
+
+
+# ── OS / Editor artifacts ────────────────────────────────────
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.swo
+
+
+# ============================================================
+# DATA FILES  —  all image, video, and archive formats
+# ============================================================
+
+# Images
+*.jpg
+*.jpeg
+*.png
+*.bmp
+*.tiff
+*.tif
+*.webp
+*.gif
+*.svg
+
+# Videos
+*.mp4
+*.avi
+*.mov
+*.mkv
+*.wmv
+*.flv
+*.webm
+
+# Archives / compressed datasets
+*.zip
+*.tar
+*.tar.gz
+*.tar.bz2
+*.rar
+*.7z
+
+
+# ============================================================
+# RAW DATASET DIRECTORIES
+# (large image / video collections used for training & testing)
+# ============================================================
+data/
+PRODUCTSNEW/
+NEWPRODUCTS_CROPPED/
+all_products/
+all_products_output/
+new_products/
+new_all_products/
+new_all_products_cropped/
+cropped_all_products/
+new_camera_red_products/
+new_camera_red_products_defects/
+new_data_defects_only/
+new_data_products_only/
+data_defects_only/
+data_products_only/
+type_wise_all_products/
+
+
+# ============================================================
+# INFERENCE / ANNOTATION OUTPUT DIRECTORIES
+# (contain annotated images, videos, and per-run reports)
+# ============================================================
+
+# Two-phase detector annotated outputs
+two_phase_output/
+two_phase_video_output/
+
+# Ring-inspection visualisation outputs
+# Exception: weights.json inside each product subfolder is a
+# LEARNED MODEL FILE and is explicitly re-included below.
+ring_inspection_output/*
+!ring_inspection_output/*/
+ring_inspection_output/*/normal/
+ring_inspection_output/*/defective/
+ring_inspection_output/report.json
+
+
+# ============================================================
+# YOLO TRAINING OUTPUT  —  keep weights, ignore everything else
+# (confusion matrices, result PNGs, CSV logs, TensorBoard runs)
+# ============================================================
+
+# Ignore all training artefacts inside output/ …
+output/
+
+# … but explicitly UN-IGNORE model weight files
+!output/
+!output/*/
+!output/*/*/
+!output/*/*/*/
+!output/*/*/weights/
+!output/*/*/*/weights/
+!output/*/*/weights/*.pt
+!output/*/*/*/weights/*.pt
+!output/*/*/weights/*.onnx
+!output/*/*/*/weights/*.onnx
+
+# Keep top-level evaluation metrics JSON (not raw data)
+!output/*/test_metrics.json
+
+
+# ============================================================
+# EXPLICITLY KEPT — ring inspection learned weight files
+# (one weights.json is saved per trained product profile)
+# ============================================================
+!ring_inspection_output/
+!ring_inspection_output/*/
+!ring_inspection_output/*/weights.json
+
+
+# ============================================================
+# ROBOFLOW / DATASET README FILES  (auto-generated, not needed)
+# ============================================================
+README.dataset.txt
+README.roboflow.txt

@@ -1,0 +1,7 @@
+path: /home/rohit/Rohit/Product_QA/yolo_v8_test/data
+train: train/images
+val: valid/images
+test: test/images
+
+nc: 5
+names: ['Porosity', 'chipoff', 'dent', 'product', 'surface unclean']
