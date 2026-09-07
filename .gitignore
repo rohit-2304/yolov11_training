@@ -14,7 +14,7 @@ __pycache__/
 dist/
 build/
 *.egg
-
+venv
 
 # ── Virtual environments ─────────────────────────────────────
 .venv/
@@ -85,7 +85,7 @@ new_data_products_only/
 data_defects_only/
 data_products_only/
 type_wise_all_products/
-
+data
 
 # ============================================================
 # INFERENCE / ANNOTATION OUTPUT DIRECTORIES

@@ -144,7 +144,7 @@ names: {class_names}
             workers=1,
             cache=True,
             verbose=True,
-            auto_augment=False,
+            auto_augment="False",
 
             # Regularisation — more aggressive than product detector
             # because defect dataset is smaller and harder

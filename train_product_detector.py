@@ -132,7 +132,7 @@ names: ['product']
             workers=1,
             cache=True,
             verbose=True,
-            auto_augment=False,
+            auto_augment="False",
 
             # Regularisation
             dropout=0.1,

@@ -166,7 +166,7 @@ python3 train_product_detector.py \
     --name train_results_red_cam \
     --exist_ok
 ```
-
+python train_product_detector.py --weights yolov11_training\output\product_detector\train_results\weights\best.pt --name product_detector\ --batch 16 --epochs 50 --data_dir data\product
 **Output weights:**
 ```
 output/product_detector/<name>/weights/best.pt
@@ -212,6 +212,7 @@ python3 train_defect_detector.py \
     --name train_results_red_cam_defects \
     --exist_ok
 ```
+python train_defect_detector.py --dataset "data\defects" --epochs 200 --imgsz 1280 --weights "output\defect_detector\train_new_products\weights\best.pt" --name train_results_final exist_ok
 
 **Output weights:**
 ```
@@ -367,7 +368,7 @@ python3 crop_products.py \
     --conf 0.30 \
     --buffer 0.05
 ```
-
+python crop_products.py --weights "output\product_detector\product_detector-2\weights\best.pt" --conf 0.70 --buffer 0.05 --source_dir "E:\camera\captured_photos" --output_dir "E:\camera\captured_photos\cropped"
 ---
 
 ### Circle QA
